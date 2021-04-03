@@ -1,0 +1,18 @@
+FROM debian:buster
+
+ARG CABAL_URL=UNSET
+ARG GHC_DIR=UNSET
+ARG GHC_URL=UNSET
+ARG TERM=xterm
+ARG USER_GID=1000
+ARG USER_UID=1000
+
+ENV LANG=C.UTF-8
+ENV TERM=${TERM}
+
+COPY build-manual.sh /tmp/build.sh
+RUN /tmp/build.sh ${GHC_URL} ${GHC_DIR} ${CABAL_URL} ${USER_UID} ${USER_GID}
+
+USER docker
+VOLUME /host
+WORKDIR /host
