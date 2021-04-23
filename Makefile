@@ -53,8 +53,8 @@ ghc-9.0: # build GHC 9.0 image
 .PHONY: ghc-9.2
 
 ghc-9.2: DOCKER_TAG = 9.2
-ghc-9.2: GHC_URL = https://downloads.haskell.org/ghc/9.2.1-alpha1/ghc-9.2.0.20210331-x86_64-deb10-linux.tar.xz
-ghc-9.2: GHC_DIR = ghc-9.2.0.20210331
+ghc-9.2: GHC_URL = https://downloads.haskell.org/ghc/9.2.1-alpha2/ghc-9.2.0.20210422-x86_64-deb10-linux.tar.xz
+ghc-9.2: GHC_DIR = ghc-9.2.0.20210422
 ghc-9.2: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-x86_64-ubuntu-16.04.tar.xz
 ghc-9.2: build-manual
 ghc-9.2: # build GHC 9.2 image
