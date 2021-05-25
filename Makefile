@@ -28,7 +28,7 @@ build-ghcup: #internal# build Docker image using ghcup
 >   --build-arg "TERM=${TERM}" \
 >   --build-arg "USER_GID=$(shell id -g)" \
 >   --build-arg "USER_UID=$(shell id -u)" \
->   --file "Dockerfile.ghcup" \
+>   --file "ghcup/Dockerfile" \
 >   --tag $(DOCKER_IMAGE):$(DOCKER_TAG) \
 >   .
 .PHONY: build-ghcup
@@ -41,7 +41,7 @@ build-manual: #internal# build Docker image using manual installation
 >   --build-arg "TERM=${TERM}" \
 >   --build-arg "USER_GID=$(shell id -g)" \
 >   --build-arg "USER_UID=$(shell id -u)" \
->   --file "Dockerfile.manual" \
+>   --file "manual/Dockerfile" \
 >   --tag $(DOCKER_IMAGE):$(DOCKER_TAG) \
 >   .
 .PHONY: build-manual
@@ -71,5 +71,5 @@ list: # list built images
 .PHONY: list
 
 shellcheck: # run shellcheck on scripts
-> @shellcheck *.sh
+> @find . -name '*.sh' | xargs shellcheck
 .PHONY: shellcheck

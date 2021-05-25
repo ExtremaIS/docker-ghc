@@ -8,7 +8,7 @@ ARG USER_UID=1000
 ENV LANG=C.UTF-8
 ENV TERM=${TERM}
 
-COPY build-ghcup.sh /tmp/build.sh
+COPY ghcup/build.sh /tmp/build.sh
 RUN /tmp/build.sh ${GHC_VERSION} ${USER_UID} ${USER_GID}
 
 USER docker
