@@ -46,6 +46,14 @@ build-manual: #internal# build Docker image using manual installation
 >   .
 .PHONY: build-manual
 
+ghc-8.10.5: DOCKER_TAG = 8.10.5
+ghc-8.10.5: GHC_URL = https://downloads.haskell.org/ghc/8.10.5/ghc-8.10.5-x86_64-deb9-linux.tar.xz
+ghc-8.10.5: GHC_DIR = ghc-8.10.5
+ghc-8.10.5: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-x86_64-ubuntu-16.04.tar.xz
+ghc-8.10.5: build-manual
+ghc-8.10.5: # build GHC 8.10.5 image
+.PHONY: ghc-8.10.5
+
 ghc-9.0: DOCKER_TAG = 9.0
 ghc-9.0: GHC_VERSION = 9.0.1
 ghc-9.0: build-ghcup
