@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 ARG GHC_VERSION=UNSET
 ARG TERM=xterm
@@ -8,7 +8,7 @@ ARG USER_UID=1000
 ENV LANG=C.UTF-8
 ENV TERM=${TERM}
 
-COPY ghcup/build.sh /tmp/build.sh
+COPY ghcup-bullseye/build.sh /tmp/build.sh
 RUN /tmp/build.sh ${GHC_VERSION} ${USER_UID} ${USER_GID}
 
 USER docker

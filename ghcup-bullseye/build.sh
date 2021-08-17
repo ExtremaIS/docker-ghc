@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# docker-ghc ghcup build script
+# docker-ghc ghcup build script (Debian bullseye)
 #
-# Install the specified GHC version and latest Cabal version on Debian buster
-# using ghcup.
+# Install the specified GHC version and latest Cabal version on Debian
+# bullseye using ghcup.
 
 set -o errexit
 set -o nounset
@@ -66,7 +66,7 @@ apt-get install -y \
   build-essential \
   curl \
   libffi-dev \
-  libffi6 \
+  libffi7 \
   libgmp-dev \
   libgmp10 \
   libncurses-dev \

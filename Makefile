@@ -28,7 +28,7 @@ build-ghcup: #internal# build Docker image using ghcup
 >   --build-arg "TERM=${TERM}" \
 >   --build-arg "USER_GID=$(shell id -g)" \
 >   --build-arg "USER_UID=$(shell id -u)" \
->   --file "ghcup/Dockerfile" \
+>   --file "ghcup-$(DISTRO)/Dockerfile" \
 >   --tag $(DOCKER_IMAGE):$(DOCKER_TAG) \
 >   .
 .PHONY: build-ghcup
@@ -41,31 +41,30 @@ build-manual: #internal# build Docker image using manual installation
 >   --build-arg "TERM=${TERM}" \
 >   --build-arg "USER_GID=$(shell id -g)" \
 >   --build-arg "USER_UID=$(shell id -u)" \
->   --file "manual/Dockerfile" \
+>   --file "manual-$(DISTRO)/Dockerfile" \
 >   --tag $(DOCKER_IMAGE):$(DOCKER_TAG) \
 >   .
 .PHONY: build-manual
 
-ghc-8.10.5: DOCKER_TAG = 8.10.5
-ghc-8.10.5: GHC_URL = https://downloads.haskell.org/ghc/8.10.5/ghc-8.10.5-x86_64-deb9-linux.tar.xz
-ghc-8.10.5: GHC_DIR = ghc-8.10.5
-ghc-8.10.5: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-x86_64-ubuntu-16.04.tar.xz
-ghc-8.10.5: build-manual
-ghc-8.10.5: # build GHC 8.10.5 image
-.PHONY: ghc-8.10.5
+ghc-8.10.6: # build GHC 8.10.6 image
+ghc-8.10.6: DOCKER_TAG = 8.10.6
+ghc-8.10.6: GHC_VERSION = 8.10.6
+ghc-8.10.6: DISTRO=bullseye
+ghc-8.10.6: build-ghcup
+.PHONY: ghc-8.10.6
 
+ghc-9.0: # build GHC 9.0 image
 ghc-9.0: DOCKER_TAG = 9.0
 ghc-9.0: GHC_VERSION = 9.0.1
+ghc-9.0: DISTRO = bullseye
 ghc-9.0: build-ghcup
-ghc-9.0: # build GHC 9.0 image
-.PHONY: ghc-9.2
+.PHONY: ghc-9.0
 
-ghc-9.2: DOCKER_TAG = 9.2
-ghc-9.2: GHC_URL = https://downloads.haskell.org/ghc/9.2.1-alpha2/ghc-9.2.0.20210422-x86_64-deb10-linux.tar.xz
-ghc-9.2: GHC_DIR = ghc-9.2.0.20210422
-ghc-9.2: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.4.0.0/cabal-install-3.4.0.0-x86_64-ubuntu-16.04.tar.xz
-ghc-9.2: build-manual
 ghc-9.2: # build GHC 9.2 image
+ghc-9.2: DOCKER_TAG = 9.2
+ghc-9.2: GHC_VERSION = 9.2.0.20210422
+ghc-9.2: DISTRO = bullseye
+ghc-9.2: build-ghcup
 .PHONY: ghc-9.2
 
 help: # show this help

@@ -10,7 +10,7 @@ ARG USER_UID=1000
 ENV LANG=C.UTF-8
 ENV TERM=${TERM}
 
-COPY manual/build.sh /tmp/build.sh
+COPY manual-buster/build.sh /tmp/build.sh
 RUN /tmp/build.sh ${GHC_URL} ${GHC_DIR} ${CABAL_URL} ${USER_UID} ${USER_GID}
 
 USER docker

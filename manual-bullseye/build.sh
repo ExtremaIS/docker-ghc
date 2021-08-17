@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# docker-ghc manual build script
+# docker-ghc manual build script (Debian bullseye)
 #
-# Install the specified GHC and Cabal tarballs on Debian buster.
+# Install the specified GHC and Cabal tarballs on Debian bullseye.
 
 set -o errexit
 set -o nounset
@@ -69,7 +69,7 @@ apt-get install -y \
   build-essential \
   curl \
   libffi-dev \
-  libffi6 \
+  libffi7 \
   libgmp-dev \
   libgmp10 \
   libncurses-dev \
