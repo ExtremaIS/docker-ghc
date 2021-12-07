@@ -68,6 +68,7 @@ put_info "Installing packages"
 apt-get install -y \
   build-essential \
   curl \
+  git \
   libffi-dev \
   libffi6 \
   libgmp-dev \
