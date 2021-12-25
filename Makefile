@@ -57,9 +57,11 @@ ghc-8.10: build-manual
 
 ghc-9.0: # build GHC 9.0 image
 ghc-9.0: DOCKER_TAG = 9.0
-ghc-9.0: GHC_VERSION = 9.0.1
+ghc-9.0: GHC_URL = https://downloads.haskell.org/~ghc/9.0.2/ghc-9.0.2-x86_64-deb10-linux.tar.xz
+ghc-9.0: GHC_DIR = ghc-9.0.2
+ghc-9.0: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.6.2.0/cabal-install-3.6.2.0-x86_64-linux-deb10.tar.xz
 ghc-9.0: DISTRO = bullseye
-ghc-9.0: build-ghcup
+ghc-9.0: build-manual
 .PHONY: ghc-9.0
 
 ghc-9.2: # build GHC 9.2 image
