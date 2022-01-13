@@ -72,6 +72,7 @@ apt-get install -y \
   libgmp10 \
   libncurses-dev \
   libncurses5 \
+  libnuma-dev \
   libtinfo5 \
   sudo \
   tmux \
