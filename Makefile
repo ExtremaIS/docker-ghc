@@ -24,6 +24,7 @@ MAKEFLAGS += --warn-undefined-variables
 
 build-ghcup: #internal# build Docker image using ghcup
 > docker build \
+>   --no-cache \
 >   --build-arg "GHC_VERSION=$(GHC_VERSION)" \
 >   --build-arg "TERM=${TERM}" \
 >   --build-arg "USER_GID=$(shell id -g)" \
@@ -35,6 +36,7 @@ build-ghcup: #internal# build Docker image using ghcup
 
 build-manual: #internal# build Docker image using manual installation
 > docker build \
+>   --no-cache \
 >   --build-arg "CABAL_URL=$(CABAL_URL)" \
 >   --build-arg "GHC_DIR=$(GHC_DIR)" \
 >   --build-arg "GHC_URL=$(GHC_URL)" \
