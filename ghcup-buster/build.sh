@@ -100,21 +100,29 @@ put_info "Setting password"
 echo "docker:docker" | chpasswd
 
 put_heading "Install ghcup"
+put_info "Creating /home/docker/.ghcup/bin"
+sudo -u "docker" mkdir -p "/home/docker/.ghcup/bin"
 put_info "Downloading ghcup"
-wget https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup \
-  -O /usr/local/bin/ghcup
+sudo -u "docker" \
+  wget https://downloads.haskell.org/~ghcup/x86_64-linux-ghcup \
+  -O /home/docker/.ghcup/bin/ghcup
 put_info "Setting ghcup permissions"
-chmod 0755 /usr/local/bin/ghcup
+sudo -u "docker" chmod 0755 /home/docker/.ghcup/bin/ghcup
+put_info "Upgrading ghcup"
+sudo -u "docker" /home/docker/.ghcup/bin/ghcup upgrade
+put_info "Confirming ghcup installation"
+sudo -u "docker" /home/docker/.ghcup/bin/ghcup --version
 
 put_heading "Install GHC"
 put_info "Installing GHC ${GHC_VERSION}"
-sudo -u "docker" ghcup install ghc "${GHC_VERSION}" --set
+sudo -u "docker" \
+  /home/docker/.ghcup/bin/ghcup install ghc "${GHC_VERSION}" --set
 put_info "Confirming GHC installation"
 sudo -u "docker" /home/docker/.ghcup/bin/ghc --version
 
 put_heading "Install Cabal"
 put_info "Installing Cabal"
-sudo -u "docker" ghcup install cabal
+sudo -u "docker" /home/docker/.ghcup/bin/ghcup install cabal
 put_info "Confirming Cabal installation"
 sudo -u "docker" /home/docker/.ghcup/bin/cabal --version
 put_info "Updating Cabal package list"
