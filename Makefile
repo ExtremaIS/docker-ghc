@@ -86,6 +86,15 @@ ghc-9.2: DISTRO = bullseye
 ghc-9.2: build-manual
 .PHONY: ghc-9.2
 
+ghc-9.4: # build GHC 9.4 image
+ghc-9.4: DOCKER_TAG = 9.4
+ghc-9.4: GHC_URL = https://downloads.haskell.org/ghc/9.4.1-alpha1/ghc-9.4.0.20220501-x86_64-deb11-linux.tar.xz
+ghc-9.4: GHC_DIR = ghc-9.4.0.20220501-x86_64-unknown-linux
+ghc-9.4: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.6.2.0/cabal-install-3.6.2.0-x86_64-linux-deb10.tar.xz
+ghc-9.4: DISTRO = bullseye
+ghc-9.4: build-manual
+.PHONY: ghc-9.4
+
 grep: # grep all non-hidden files for expression E
 > $(eval E:= "")
 > @test -n "$(E)" || $(call die,"usage: make grep E=expression")
