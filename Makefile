@@ -97,8 +97,8 @@ ghc-9.4: build-manual
 
 ghc-9.6: # build GHC 9.6 image
 ghc-9.6: DOCKER_TAG = 9.6
-ghc-9.6: GHC_URL = https://downloads.haskell.org/ghc/9.6.2/ghc-9.6.2-x86_64-deb11-linux.tar.xz
-ghc-9.6: GHC_DIR = ghc-9.6.2-x86_64-unknown-linux
+ghc-9.6: GHC_URL = https://downloads.haskell.org/~ghc/9.6.3/ghc-9.6.3-x86_64-deb11-linux.tar.xz
+ghc-9.6: GHC_DIR = ghc-9.6.3-x86_64-unknown-linux
 ghc-9.6: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-linux-deb11.tar.xz
 ghc-9.6: DISTRO = bullseye
 ghc-9.6: build-manual
