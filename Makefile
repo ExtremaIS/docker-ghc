@@ -115,9 +115,9 @@ ghc-9.8: build-manual
 
 ghc-9.10: # build GHC 9.10 image
 ghc-9.10: DOCKER_TAG = 9.10
-ghc-9.10: GHC_URL = https://downloads.haskell.org/ghc/9.10.2-rc1/ghc-9.10.1.20250417-x86_64-deb12-linux.tar.xz
-ghc-9.10: GHC_DIR = ghc-9.10.1.20250417-x86_64-unknown-linux
-ghc-9.10: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.14.1.1/cabal-install-3.14.1.1-x86_64-linux-deb12.tar.xz
+ghc-9.10: GHC_URL = https://downloads.haskell.org/ghc/9.10.2/ghc-9.10.2-x86_64-deb12-linux.tar.xz
+ghc-9.10: GHC_DIR = ghc-9.10.2-x86_64-unknown-linux
+ghc-9.10: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-deb12.tar.xz
 ghc-9.10: DISTRO = bookworm
 ghc-9.10: build-manual
 .PHONY: ghc-9.10
