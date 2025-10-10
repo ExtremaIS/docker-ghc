@@ -133,8 +133,8 @@ ghc-9.12: build-manual
 
 ghc-9.14: # build GHC 9.14 image
 ghc-9.14: DOCKER_TAG = 9.14
-ghc-9.14: GHC_URL = https://downloads.haskell.org/ghc/9.14.1-alpha2/ghc-9.14.0.20250908-x86_64-deb12-linux.tar.xz
-ghc-9.14: GHC_DIR = ghc-9.14.0.20250908-x86_64-unknown-linux
+ghc-9.14: GHC_URL = https://downloads.haskell.org/~ghc/9.14.1-alpha3/ghc-9.14.0.20251007-x86_64-deb12-linux.tar.xz
+ghc-9.14: GHC_DIR = ghc-9.14.0.20251007-x86_64-unknown-linux
 ghc-9.14: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-linux-deb12.tar.xz
 ghc-9.14: DISTRO = bookworm
 ghc-9.14: build-manual
