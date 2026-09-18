@@ -140,6 +140,15 @@ ghc-9.14: DISTRO = bookworm
 ghc-9.14: build-manual
 .PHONY: ghc-9.14
 
+ghc-10.0: # build GHC 10.0 image
+ghc-10.0: DOCKER_TAG = 10.0
+ghc-10.0: GHC_URL = https://downloads.haskell.org/ghc/10.0.1-alpha1/ghc-10.0.0.20260917-x86_64-deb13-linux.tar.xz
+ghc-10.0: GHC_DIR = ghc-10.0.0.20260917-x86_64-unknown-linux
+ghc-10.0: CABAL_URL = https://downloads.haskell.org/~cabal/cabal-install-3.18.1.0/cabal-install-3.18.1.0-x86_64-linux-unknown.tar.xz
+ghc-10.0: DISTRO = trixie
+ghc-10.0: build-manual
+.PHONY: ghc-10.0
+
 grep: # grep all non-hidden files for expression E
 > $(eval E:= "")
 > @test -n "$(E)" || $(call die,"usage: make grep E=expression")
